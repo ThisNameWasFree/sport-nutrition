@@ -4,6 +4,7 @@
     --orange: #FF851B;
     --white: #fff;
     --silver: #ddd;
+    --black: #333;
 }
 
 * {
@@ -30,6 +31,23 @@ html {
     scroll-behavior: smooth;
 }
 
+section {
+    padding: 2rem 9%;
+}
+
+.title {
+    text-align: center;
+    padding: 2.5rem 0;
+}
+
+.title span {
+    font-size: 3.5rem;
+    background: rgba(255, 165, 0,.2);
+    color: var(--black);
+    border-radius: .5rem;
+    padding: .2rem 1rem;
+}
+
 .btn {
     display: inline-block;
     margin-top: 1rem;
@@ -54,7 +72,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #333;
+    background-color: var(--black);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -79,7 +97,7 @@ header {
     margin: 0 .8rem;
 }
 
-.header__navbar a:hover{
+.header__navbar a:hover {
     color: var(--orange);
 }
 /* --- HEADER-END --- */
@@ -123,3 +141,77 @@ header {
     object-fit: cover;
 }
 /* --- HOME-END --- */
+
+/* ----- BEST SELLERS ----- */
+.best {
+    min-height: 93vh;
+}
+
+.best__items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.best__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 2rem;
+    width: 250px;
+    max-width: 250px;
+}
+
+.best__item-img {
+    margin: auto;
+    max-width: 200px;
+    width: 100%;
+    pointer-events: none;
+}
+
+.best__item-title {
+    font-size: 2rem;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 1rem;
+    min-height: 56px;
+    max-height: 56px;
+    overflow-wrap: break-word;
+}
+
+.best__item-stars {
+    color: var(--orange);
+    margin-bottom: 1rem;
+}
+
+.best__item-price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.best__intro {
+    background-color: #E6E6E6;
+    padding-top: 20px;
+    min-height: 43vh;
+}
+
+.best__intro-inner {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+.best__intro-img {
+    max-width: 100%;
+}
+
+.best__intro-inner p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-top: 40px;
+}
+/* --- BEST SELLERS-END --- */
