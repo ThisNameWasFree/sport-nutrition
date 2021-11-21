@@ -7,6 +7,7 @@
   <title>Sport Nutrition</title>
   <link rel="shortcut icon" type="image/x-icon" media="all" href="https://www.optimumnutrition.com/_ui/vad8e897adf4c/responsive/theme/optimum-nutrition/images/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="./components/cart/cart.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,8 +21,23 @@
       <a href="#4">4</a>
       <a href="#5">5</a>
       <a href="#6">6</a>
-      <a href="#7">7</a>
+
+      <!-- CART-icon -->
+      <a href="#cart">
+        <span class="cart__counter">
+          <i class="fa fa-shopping-cart"></i><span id="total__counter">0</span>
+        </span>
+      </a>
     </nav>
+
+    <!-- CART-popUp -->
+    <div class="cart__items">
+      <div class="check_out">
+        <h4>Total Amount: $</h4>
+        <h4 class="total__cost">0</h4>
+        <button class="small-btn">order now</button>
+      </div>
+    </div>
   </header>
 
   <!-- HOME -->
@@ -128,5 +144,6 @@
   </div>
 
 <script src="main.js"></script>
+<script src="./components/cart/cart.js"></script>
 </body>
 </html>
