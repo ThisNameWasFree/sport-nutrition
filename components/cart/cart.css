@@ -47,7 +47,7 @@
     box-shadow: 2px 0 10px -2px rgb(255, 255, 255);
 }
 
-/* ACTIVE */
+/* popUp ACTIVE */
 .cart__items.active {
     display: flex;
     flex-direction: column;
@@ -85,4 +85,24 @@
 }
 .small-btn:hover {
     color: var(--orange);
+}
+
+/* --- Products in Cart --- */
+.cart_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 700px;
+    border-bottom: 1px dashed #f6b08c;
+    max-height: 70px;
+}
+
+.cart_item > * {
+    margin: 20px;
+}
+
+.cart_item img {
+    height: 50px;
 }

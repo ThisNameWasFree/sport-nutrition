@@ -220,11 +220,15 @@ header {
 }
 
 .best__item-stars {
+    display: flex;
+    justify-content: center;
     color: var(--orange);
     margin-bottom: 1rem;
 }
 
 .best__item-price {
+    display: flex;
+    justify-content: center;
     font-size: 18px;
     font-weight: bold;
 }
