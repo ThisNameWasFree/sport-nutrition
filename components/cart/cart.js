@@ -12,7 +12,6 @@ cartCounter.addEventListener("click", () => {
     cartDOM.classList.toggle("active");
 })
 
-// Add to Cart
 addToCartBtn.forEach(btn => {
     btn.addEventListener("click", () => {
         let parentElement = btn.parentElement;
@@ -41,6 +40,8 @@ addToCartBtn.forEach(btn => {
             if (individualItem.querySelector("#product__id").value === product.id) {
                 // increase
                 increaseItem(individualItem, product);
+                // decrease
+                decreaseItem(individualItem, product);
             }
         })
 
@@ -82,6 +83,24 @@ function increaseItem(individualItem, product) {
             if (cartItem.id === product.id) {
                 individualItem.querySelector(".product__quantity").innerText = ++cartItem.quantity;
                 calculateTotal();
+            }
+        })
+    });
+}
+
+function decreaseItem(individualItem, product) {
+    individualItem.querySelector("[action='decrease']").addEventListener('click', () => {
+        cartItems.forEach(cartItem => {
+            // Actual Array
+            if (cartItem.id === product.id) {
+                if (cartItem.quantity > 1) {
+                    individualItem.querySelector(".product__quantity").innerText = --cartItem.quantity;
+                    calculateTotal();
+                } else {
+                    cartItems = cartItems.filter(newElements => newElements.id !== product.id);
+                    individualItem.remove();
+                    calculateTotal();
+                }
             }
         })
     });
