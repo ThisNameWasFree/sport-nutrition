@@ -1,6 +1,8 @@
 const cartDOM      = document.querySelector(".cart__items");
 const cartCounter  = document.querySelector(".cart__counter");
 const addToCartBtn = document.querySelectorAll(".best__item-cart-adding");
+const totalCost    = document.querySelector(".total__cost");
+const totalCount   = document.querySelector("#total__counter");
 
 // assign all values from local storage
 let cartItems = (JSON.parse(localStorage.getItem("cart_items")) || []);
@@ -19,7 +21,8 @@ addToCartBtn.forEach(btn => {
             id:    parentElement.querySelector("#product__id").value,
             name:  parentElement.querySelector(".best__item-title").innerText,
             image: parentElement.querySelector("#image").getAttribute("src"),
-            price: parentElement.querySelector(".best__item-price").innerText.replace("$", "")
+            price: parentElement.querySelector(".best__item-price").innerText.replace("$", ""),
+            quantity: 1
         }
 
         let isInCart = cartItems.filter(item => item.id === product.id).length > 0;
@@ -33,6 +36,7 @@ addToCartBtn.forEach(btn => {
         }
 
         cartItems.push(product);
+        calculateTotal();
     });
 
     function addItemToTheDOM(product) {
@@ -41,9 +45,21 @@ addToCartBtn.forEach(btn => {
             <div class="cart_item">
               <img id="image" src="${product.image}">
               <h3 class="best__item-title">${product.name}</h3>
+              <h3 class="product__quantity">${product.quantity}</h3>
               <h2 id="best__item-price">$ ${product.price}</h2>
             </div>
         `);
+    }
+
+    function calculateTotal() {
+        let total = 0;
+
+        cartItems.forEach(item => {
+            total += item.quantity * item.price;
+        });
+
+        totalCost.innerText = total;
+        totalCount.innerText = cartItems.length;
     }
 
 })
