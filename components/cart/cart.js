@@ -35,31 +35,54 @@ addToCartBtn.forEach(btn => {
             return;
         }
 
+        const cartDOMItems = document.querySelectorAll(".cart_item");
+
+        cartDOMItems.forEach(individualItem => {
+            if (individualItem.querySelector("#product__id").value === product.id) {
+                // increase
+                increaseItem(individualItem, product);
+            }
+        })
+
         cartItems.push(product);
         calculateTotal();
     });
-
-    function addItemToTheDOM(product) {
-        // Adding the new Item to the Dom
-        cartDOM.insertAdjacentHTML("afterbegin", `
-            <div class="cart_item">
-              <img id="image" src="${product.image}">
-              <h3 class="best__item-title">${product.name}</h3>
-              <h3 class="product__quantity">${product.quantity}</h3>
-              <h2 id="best__item-price">$ ${product.price}</h2>
-            </div>
-        `);
-    }
-
-    function calculateTotal() {
-        let total = 0;
-
-        cartItems.forEach(item => {
-            total += item.quantity * item.price;
-        });
-
-        totalCost.innerText = total;
-        totalCount.innerText = cartItems.length;
-    }
-
 })
+
+function addItemToTheDOM(product) {
+    // Adding the new Item to the Dom
+    cartDOM.insertAdjacentHTML("afterbegin", `
+        <div class="cart_item">
+          <input type="hidden" id="product__id" value="${product.id}">
+          <img id="image" src="${product.image}">
+          <h3 class="best__item-title">${product.name}</h3>
+          <a class="small-btn" action="decrease">&minus;</a>
+          <h3 class="product__quantity">${product.quantity}</h3>
+          <a class="small-btn" action="increase">&plus;</a>
+          <h2 id="best__item-price">$ ${product.price}</h2>
+        </div>
+    `);
+}
+
+function calculateTotal() {
+    let total = 0;
+
+    cartItems.forEach(item => {
+        total += item.quantity * item.price;
+    });
+
+    totalCost.innerText = total;
+    totalCount.innerText = cartItems.length;
+}
+
+function increaseItem(individualItem, product) {
+    individualItem.querySelector("[action='increase']").addEventListener('click', () => {
+        // Actual Array
+        cartItems.forEach(cartItem => {
+            if (cartItem.id === product.id) {
+                individualItem.querySelector(".product__quantity").innerText = ++cartItem.quantity;
+                calculateTotal();
+            }
+        })
+    });
+}
