@@ -3,6 +3,7 @@ const cartCounter  = document.querySelector(".cart__counter");
 const addToCartBtn = document.querySelectorAll(".best__item-cart-adding");
 const totalCost    = document.querySelector(".total__cost");
 const totalCount   = document.querySelector("#total__counter");
+const checkOutBtn  = document.querySelector("#check_out_btn");
 
 // assign all values from local storage
 let cartItems = (JSON.parse(localStorage.getItem("cart_items")) || []);
@@ -12,6 +13,11 @@ document.addEventListener("DOMContentLoaded", loadData);
 // Adding/Removing Active Class Onclick
 cartCounter.addEventListener("click", () => {
     cartDOM.classList.toggle("active");
+})
+
+checkOutBtn.addEventListener("click", () => {
+    alert("Thank you! Your order was successfully submitted!");
+    clearCartItems();
 })
 
 addToCartBtn.forEach(btn => {
@@ -153,4 +159,17 @@ function removeItem(individualItem, product) {
             }
         })
     });
+}
+
+function clearCartItems() {
+    localStorage.clear();
+    cartItems = [];
+
+    document.querySelectorAll(".cart__items").forEach(item => {
+        item.querySelectorAll(".cart_item").forEach(node => {
+            node.remove();
+        });
+    });
+    cartDOM.classList.toggle("active");
+    calculateTotal();
 }
