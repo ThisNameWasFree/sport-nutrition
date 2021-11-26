@@ -42,6 +42,8 @@ addToCartBtn.forEach(btn => {
                 increaseItem(individualItem, product);
                 // decrease
                 decreaseItem(individualItem, product);
+                // remove all items
+                removeItem(individualItem, product);
             }
         })
 
@@ -61,6 +63,7 @@ function addItemToTheDOM(product) {
           <h3 class="product__quantity">${product.quantity}</h3>
           <a class="small-btn" action="increase">&plus;</a>
           <h2 id="best__item-price">$ ${product.price}</h2>
+          <a class="small-btn btn_remove" action="remove">&times;</a>
         </div>
     `);
 }
@@ -101,6 +104,18 @@ function decreaseItem(individualItem, product) {
                     individualItem.remove();
                     calculateTotal();
                 }
+            }
+        })
+    });
+}
+
+function removeItem(individualItem, product) {
+    individualItem.querySelector("[action='remove']").addEventListener('click', () => {
+        cartItems.forEach(cartItem => {
+            if (cartItem.id === product.id) {
+                cartItems = cartItems.filter(newElements => newElements.id !== product.id);
+                individualItem.remove();
+                calculateTotal();
             }
         })
     });
