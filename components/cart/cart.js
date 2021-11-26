@@ -7,6 +7,8 @@ const totalCount   = document.querySelector("#total__counter");
 // assign all values from local storage
 let cartItems = (JSON.parse(localStorage.getItem("cart_items")) || []);
 
+document.addEventListener("DOMContentLoaded", loadData);
+
 // Adding/Removing Active Class Onclick
 cartCounter.addEventListener("click", () => {
     cartDOM.classList.toggle("active");
@@ -49,6 +51,7 @@ addToCartBtn.forEach(btn => {
 
         cartItems.push(product);
         calculateTotal();
+        saveToLocalStorage();
     });
 })
 
@@ -66,6 +69,33 @@ function addItemToTheDOM(product) {
           <a class="small-btn btn_remove" action="remove">&times;</a>
         </div>
     `);
+}
+
+function saveToLocalStorage(){
+    localStorage.setItem("cart_items", JSON.stringify(cartItems));
+}
+
+function loadData() {
+    if (cartItems.length > 0) {
+        cartItems.forEach(product => {
+            addItemToTheDOM(product);
+
+            const cartDOMItems = document.querySelectorAll(".cart_item");
+
+            cartDOMItems.forEach(individualItem => {
+                if (individualItem.querySelector("#product__id").value === product.id) {
+                    // increase
+                    increaseItem(individualItem, product);
+                    // decrease
+                    decreaseItem(individualItem, product);
+                    // Removing Element
+                    removeItem(individualItem, product);
+
+                }
+            });
+        });
+        calculateTotal();
+    }
 }
 
 function calculateTotal() {
@@ -86,6 +116,7 @@ function increaseItem(individualItem, product) {
             if (cartItem.id === product.id) {
                 individualItem.querySelector(".product__quantity").innerText = ++cartItem.quantity;
                 calculateTotal();
+                saveToLocalStorage();
             }
         })
     });
@@ -99,10 +130,12 @@ function decreaseItem(individualItem, product) {
                 if (cartItem.quantity > 1) {
                     individualItem.querySelector(".product__quantity").innerText = --cartItem.quantity;
                     calculateTotal();
+                    saveToLocalStorage();
                 } else {
                     cartItems = cartItems.filter(newElements => newElements.id !== product.id);
                     individualItem.remove();
                     calculateTotal();
+                    saveToLocalStorage();
                 }
             }
         })
@@ -116,6 +149,7 @@ function removeItem(individualItem, product) {
                 cartItems = cartItems.filter(newElements => newElements.id !== product.id);
                 individualItem.remove();
                 calculateTotal();
+                saveToLocalStorage();
             }
         })
     });
