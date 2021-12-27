@@ -118,6 +118,7 @@
     font-size: 20px;
     color: var(--black);
     text-decoration: none;
+    cursor: pointer;
 }
 .popup__close:hover {
     color: var(--orange);

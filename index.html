@@ -8,6 +8,7 @@
   <link rel="shortcut icon" type="image/x-icon" media="all" href="https://www.optimumnutrition.com/_ui/vad8e897adf4c/responsive/theme/optimum-nutrition/images/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="./components/cart/cart.css">
+  <link rel="stylesheet" href="./components/info/info.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -35,7 +36,7 @@
       <a class="popup__area" href="#header"></a>
       <div class="popup__body">
         <div class="popup__content">
-          <a class="popup__close" href="#header">X</a>
+          <a class="popup__close" href="#header">&times;</a>
           <h1 class="title">
             <span>my</span>
             <span>cart</span>
@@ -57,7 +58,17 @@
     <div class="home__content">
       <h3>no pain, no gain</h3>
       <p>Food & drinks for sport</p>
-      <a href="#" class="btn">discover more</a>
+      <a class="trigger btn" href="#">discover more</a>
+    </div>
+
+<!--    todo: DISCOVER MORE - modal => content (task: 001) -->
+
+    <!-- DISCOVER MORE - modal -->
+    <div class="modal">
+      <div class="modal__content">
+        <span class="popup__close" id="close-discover-more">&times;</span>
+        <h1 class="modal__title">Hello, I am a modal!</h1>
+      </div>
     </div>
 
     <!-- DOWNLOAD video: https://www.pexels.com/videos -->
@@ -77,6 +88,7 @@
 
       <div class="best__items">
 
+        <!-- CASEIN -->
         <div class="best__item">
           <a class="best__item-cart" href="#bestSellers">
             <input type="hidden" id="product__id" value="1" />
@@ -94,6 +106,7 @@
           </a>
         </div>
 
+        <!-- WHEY -->
         <div class="best__item">
           <a class="best__item-cart" href="#bestSellers">
             <input type="hidden" id="product__id" value="2" />
@@ -111,6 +124,7 @@
           </a>
         </div>
 
+        <!-- SERIOUS MASS -->
         <div class="best__item">
           <a class="best__item-cart" href="#bestSellers">
             <input type="hidden" id="product__id" value="3" />
@@ -128,6 +142,7 @@
           </a>
         </div>
 
+        <!-- AMIN.O. ENERGY -->
         <div class="best__item">
           <a class="best__item-cart" href="#bestSellers">
             <input type="hidden" id="product__id" value="4" />
@@ -145,6 +160,7 @@
           </a>
         </div>
 
+        <!-- AMIN.O. ENERGY + -->
         <div class="best__item">
           <a class="best__item-cart" href="#bestSellers">
             <input type="hidden" id="product__id" value="5" />
@@ -177,5 +193,6 @@
 
 <script src="main.js"></script>
 <script src="./components/cart/cart.js"></script>
+<script src="./components/info/info.js"></script>
 </body>
 </html>
