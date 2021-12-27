@@ -12,8 +12,8 @@
 </head>
 <body>
 
-  <header>
-    <a href="#" class="header__logo"><span>Sport</span> Nutrition</a>
+  <header id="header">
+    <a class="header__logo" href="#"><span>Sport</span> Nutrition</a>
     <nav class="header__navbar">
       <a href="#home">home</a>
       <a href="#bestSellers">best sellers</a>
@@ -23,7 +23,7 @@
       <a href="#6">6</a>
 
       <!-- CART-icon -->
-      <a href="#cart">
+      <a href="#popup-cart">
         <span class="cart__counter">
           <i class="fa fa-shopping-cart"></i><span id="total__counter">0</span>
         </span>
@@ -31,11 +31,23 @@
     </nav>
 
     <!-- CART-popUp -->
-    <div class="cart__items">
-      <div class="check_out">
-        <h4>Total Amount: $</h4>
-        <h4 class="total__cost">0</h4>
-        <button id="check_out_btn" class="small-btn">order now</button>
+    <div class="popup" id="popup-cart">
+      <a class="popup__area" href="#header"></a>
+      <div class="popup__body">
+        <div class="popup__content">
+          <a class="popup__close" href="#header">X</a>
+          <h1 class="title">
+            <span>my</span>
+            <span>cart</span>
+          </h1>
+          <div class="cart__items">
+            <div class="check_out">
+              <h4>Total Amount: $</h4>
+              <h4 class="total__cost">0</h4>
+              <button id="check_out_btn" class="small-btn">order now</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -70,7 +82,7 @@
             <input type="hidden" id="product__id" value="1" />
             <img class="best__item-img" id="image" src="./img/casein.png" alt="casein">
             <p class="best__item-cart-adding btn">Add to Cart</p>
-            <h3 class="best__item-title">GOLD STANDARD 100% CASEIN</h3>
+            <h3 class="best__item-title">100% CASEIN</h3>
             <div class="best__item-stars">
               <i class="fas fa-star fa-2x"></i>
               <i class="fas fa-star fa-2x"></i>
@@ -87,7 +99,7 @@
             <input type="hidden" id="product__id" value="2" />
             <img class="best__item-img" id="image" src="./img/whey.png" alt="whey-protein">
             <p class="best__item-cart-adding btn">Add to Cart</p>
-            <h3 class="best__item-title">GOLD STANDARD 100% WHEY</h3>
+            <h3 class="best__item-title">100% WHEY</h3>
             <div class="best__item-stars">
               <i class="fas fa-star fa-2x"></i>
               <i class="fas fa-star fa-2x"></i>
@@ -121,7 +133,7 @@
             <input type="hidden" id="product__id" value="4" />
             <img class="best__item-img" id="image" src="./img/energy.png" alt="amino-energy">
             <p class="best__item-cart-adding btn">Add to Cart</p>
-            <h3 class="best__item-title">ESSENTIAL AMIN.O. ENERGY</h3>
+            <h3 class="best__item-title">AMIN.O. ENERGY</h3>
             <div class="best__item-stars">
               <i class="fas fa-star fa-2x"></i>
               <i class="fas fa-star fa-2x"></i>
@@ -138,7 +150,7 @@
             <input type="hidden" id="product__id" value="5" />
             <img class="best__item-img" id="image" src="./img/energyPlus.png" alt="amino-energy-sparkling">
             <p class="best__item-cart-adding btn">Add to Cart</p>
-            <h3 class="best__item-title">ESSENTIAL AMIN.O. ENERGY +</h3>
+            <h3 class="best__item-title">AMIN.O. ENERGY +</h3>
             <div class="best__item-stars">
               <i class="fas fa-star fa-2x"></i>
               <i class="fas fa-star fa-2x"></i>

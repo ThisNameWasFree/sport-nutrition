@@ -216,6 +216,8 @@ header {
     margin-bottom: 1rem;
     min-height: 56px;
     max-height: 56px;
+    min-width: 150px;
+    max-width: 150px;
     overflow-wrap: break-word;
 }
 
