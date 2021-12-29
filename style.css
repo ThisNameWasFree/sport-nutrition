@@ -41,11 +41,24 @@ section {
 }
 
 .title span {
-    font-size: 3.5rem;
+    /*
+       calc = minSize + (maxSize - minSize) * (screenWidth / layoutWidth)
+    */
+    font-size: calc(24px + 16 * (100vw / 1280));
+
     background: rgba(255, 165, 0,.2);
     color: var(--black);
     border-radius: .5rem;
     padding: .2rem 1rem;
+}
+
+@media (max-width: 767px) {
+    .title span {
+        /*
+           calc = minSize + (maxSize - (minSize + 70% of minSize)) * ((screenWidth - maxValue) / layoutWidth)
+        */
+        font-size: calc(24px + (16 + 16 * 0.7) * ((100vw - 320px) / 1280));
+    }
 }
 
 .btn {
@@ -66,6 +79,10 @@ section {
     color: var(--white);
 }
 
+.mt-2 {
+    margin-top: 2em;
+}
+
 /* ----- HEADER ----- */
 header {
     position: fixed;
@@ -78,6 +95,13 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 9%;
+}
+
+/* todo: burgerMenu */
+@media screen and (max-width: 1499px) {
+    header {
+        display: none;
+    }
 }
 
 .header__logo {

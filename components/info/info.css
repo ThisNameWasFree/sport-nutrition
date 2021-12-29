@@ -9,24 +9,90 @@
     visibility: hidden;
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .modal__content {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 10%;
+    left: 15%;
     background-color: white;
     padding: 1rem 1.5rem;
-    width: 90%;
+    width: 70%;
     border-radius: 0.5rem;
 }
 
-.modal__title {}
+@media screen and (max-width: 1499px) {
+    .modal__content {
+        top: 2%;
+    }
+}
+
+.modal__items {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.modal__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 2rem;
+    width: 500px;
+    max-width: 500px;
+}
+
+.modal__text {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.modal__video {
+    width: 500px;
+    height: 320px;
+    left: 0;
+    top: 0;
+}
+
+.modal__video-person-name {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--orange);
+}
+
+.modal__video-person-from {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.modal__video-person-about {
+    margin-top: 10px;
+    font-size: 18px;
+}
 
 .show-modal {
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.logo__wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+}
+
+.logo__img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
 }
