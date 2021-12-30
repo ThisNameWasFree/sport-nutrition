@@ -23,9 +23,9 @@
     border-radius: 0.5rem;
 }
 
-@media screen and (max-width: 1499px) {
+@media screen and (max-width: 767px) {
     .modal__content {
-        top: 2%;
+        top: 15%;
     }
 }
 
