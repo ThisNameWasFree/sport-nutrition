@@ -67,7 +67,7 @@ function addItemToTheDOM(product) {
         <div class="cart_item">
           <input type="hidden" id="product__id" value="${product.id}">
           <img id="image" src="${product.image}">
-          <h3 class="best__item-title">${product.name}</h3>
+          <h3 class="best__item-title best__item-title--in-cart">${product.name}</h3>
           <a class="small-btn" action="decrease">&minus;</a>
           <h3 class="product__quantity">${product.quantity}</h3>
           <a class="small-btn" action="increase">&plus;</a>
