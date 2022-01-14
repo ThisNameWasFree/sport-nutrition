@@ -3,7 +3,7 @@ const cartCounter  = document.querySelector(".cart__counter");
 const addToCartBtn = document.querySelectorAll(".best__item-cart-adding");
 const totalCost    = document.querySelector(".total__cost");
 const totalCount   = document.querySelector("#total__counter");
-const checkOutBtn  = document.querySelector("#check_out_btn");
+const checkOutBtn  = document.querySelector("#check_out_btn--from-cart");
 
 // assign all values from local storage
 let cartItems = (JSON.parse(localStorage.getItem("cart_items")) || []);
